@@ -8,6 +8,15 @@ import android.os.Build;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
+
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeMap;
@@ -65,7 +74,7 @@ class FastImageViewManager extends SimpleViewManager<FastImageViewWithUrl> imple
                 FastImageOkHttpProgressGlideModule.forget(view.glideUrl.toStringUrl());
             }
             // Clear the image.
-            view.setImageDrawable(null);
+            view.setImageBitmap(null);
             return;
         }
 

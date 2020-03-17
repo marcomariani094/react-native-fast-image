@@ -4,6 +4,14 @@ import android.app.Activity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -37,6 +45,8 @@ class FastImageViewModule extends ReactContextBaseJavaModule {
 
                     Glide
                             .with(activity.getApplicationContext())
+                            .asBitmap()
+//                            .format(DecodeFormat.PREFER_RGB_565)
                             // This will make this work for remote and local images. e.g.
                             //    - file:///
                             //    - content://
