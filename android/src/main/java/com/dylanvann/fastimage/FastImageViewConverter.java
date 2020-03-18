@@ -4,16 +4,12 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.net.Uri;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.Headers;
 import com.bumptech.glide.load.model.LazyHeaders;
 import com.bumptech.glide.request.RequestOptions;
@@ -90,7 +86,7 @@ class FastImageViewConverter {
         final Priority priority = FastImageViewConverter.getPriority(source);
         // Get cache control method.
         final FastImageCacheControl cacheControl = FastImageViewConverter.getCacheControl(source);
-        DiskCacheStrategy diskCacheStrategy = DiskCacheStrategy.AUTOMATIC;
+        DiskCacheStrategy diskCacheStrategy = DiskCacheStrategy.ALL;
         Boolean onlyFromCache = false;
         Boolean skipMemoryCache = false;
         switch (cacheControl) {
