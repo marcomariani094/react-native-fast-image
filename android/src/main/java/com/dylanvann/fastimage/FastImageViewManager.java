@@ -113,6 +113,7 @@ class FastImageViewManager extends SimpleViewManager<FastImageViewWithUrl> imple
                     //    - data:image/png;base64
                     .asBitmap()
                     .load(imageSource.getSourceForLoad())
+                    .dontAnimate()
                     .apply(FastImageViewConverter.getOptions(context, imageSource, source))
                     .listener(new FastImageRequestListener(key))
                     .into(view);
