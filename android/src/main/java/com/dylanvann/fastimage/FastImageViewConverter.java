@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
 import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.Headers;
@@ -110,6 +111,7 @@ class FastImageViewConverter {
             .diskCacheStrategy(diskCacheStrategy)
             .onlyRetrieveFromCache(onlyFromCache)
             .skipMemoryCache(skipMemoryCache)
+            .format(DecodeFormat.PREFER_RGB_565)
             .priority(priority)
             .placeholder(TRANSPARENT_DRAWABLE);
         

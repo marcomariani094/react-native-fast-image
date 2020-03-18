@@ -1,5 +1,6 @@
 package com.dylanvann.fastimage;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
 import com.bumptech.glide.load.DataSource;
@@ -12,7 +13,7 @@ import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 
-public class FastImageRequestListener implements RequestListener<Drawable> {
+public class FastImageRequestListener implements RequestListener<Bitmap> {
     static final String REACT_ON_ERROR_EVENT = "onFastImageError";
     static final String REACT_ON_LOAD_EVENT = "onFastImageLoad";
     static final String REACT_ON_LOAD_END_EVENT = "onFastImageLoadEnd";
@@ -23,15 +24,15 @@ public class FastImageRequestListener implements RequestListener<Drawable> {
         this.key = key;
     }
 
-    private static WritableMap mapFromResource(Drawable resource) {
+    private static WritableMap mapFromResource(Bitmap resource) {
         WritableMap resourceData = new WritableNativeMap();
-        resourceData.putInt("width", resource.getIntrinsicWidth());
-        resourceData.putInt("height", resource.getIntrinsicHeight());
+        resourceData.putInt("width", resource.getWidth());
+        resourceData.putInt("height", resource.getHeight());
         return resourceData;
     }
 
     @Override
-    public boolean onLoadFailed(@android.support.annotation.Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+    public boolean onLoadFailed(@android.support.annotation.Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
         FastImageOkHttpProgressGlideModule.forget(key);
         if (!(target instanceof ImageViewTarget)) {
             return false;
@@ -46,7 +47,7 @@ public class FastImageRequestListener implements RequestListener<Drawable> {
     }
 
     @Override
-    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+    public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
         if (!(target instanceof ImageViewTarget)) {
             return false;
         }

@@ -46,7 +46,6 @@ class FastImageViewModule extends ReactContextBaseJavaModule {
                     Glide
                             .with(activity.getApplicationContext())
                             .asBitmap()
-//                            .format(DecodeFormat.PREFER_RGB_565)
                             // This will make this work for remote and local images. e.g.
                             //    - file:///
                             //    - content://
