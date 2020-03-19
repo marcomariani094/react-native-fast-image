@@ -109,8 +109,7 @@ class FastImageViewConverter {
             .skipMemoryCache(skipMemoryCache)
             .format(DecodeFormat.PREFER_RGB_565)
             .centerInside()
-            .priority(priority)
-            .placeholder(TRANSPARENT_DRAWABLE);
+            .priority(priority);
         
         if (imageSource.isResource()) {
             // Every local resource (drawable) in Android has its own unique numeric id, which are
