@@ -108,6 +108,7 @@ class FastImageViewConverter {
             .onlyRetrieveFromCache(onlyFromCache)
             .skipMemoryCache(skipMemoryCache)
             .format(DecodeFormat.PREFER_RGB_565)
+            .centerInside()
             .priority(priority)
             .placeholder(TRANSPARENT_DRAWABLE);
         

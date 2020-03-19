@@ -40,6 +40,7 @@ class FastImageViewModule extends ReactContextBaseJavaModule {
                             .asBitmap()
                             .format(DecodeFormat.PREFER_RGB_565)
                             .dontAnimate()
+                            .centerInside()
                             // This will make this work for remote and local images. e.g.
                             //    - file:///
                             //    - content://
