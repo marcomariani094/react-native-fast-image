@@ -105,7 +105,6 @@ class FastImageViewConverter {
 
         RequestOptions options = new RequestOptions()
             .diskCacheStrategy(diskCacheStrategy)
-            .onlyRetrieveFromCache(onlyFromCache)
             .skipMemoryCache(skipMemoryCache)
             .format(DecodeFormat.PREFER_RGB_565)
             .centerInside()
