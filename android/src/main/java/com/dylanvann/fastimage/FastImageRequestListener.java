@@ -1,7 +1,6 @@
 package com.dylanvann.fastimage;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
@@ -32,7 +31,7 @@ public class FastImageRequestListener implements RequestListener<Bitmap> {
     }
 
     @Override
-    public boolean onLoadFailed(@android.support.annotation.Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+    public boolean onLoadFailed(@androidx.annotation.Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
         FastImageOkHttpProgressGlideModule.forget(key);
         if (!(target instanceof ImageViewTarget)) {
             return false;
